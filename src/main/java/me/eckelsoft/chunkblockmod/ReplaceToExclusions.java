@@ -211,6 +211,7 @@ public class ReplaceToExclusions {
         Blocks.LIGHTNING_ROD,
         Blocks.ACACIA_SIGN,
         Blocks.ACACIA_WALL_HANGING_SIGN,
+        Blocks.BIRCH_HANGING_SIGN,
         Blocks.ACACIA_HANGING_SIGN,
         Blocks.DARK_OAK_HANGING_SIGN,
         Blocks.ACACIA_WALL_SIGN,
