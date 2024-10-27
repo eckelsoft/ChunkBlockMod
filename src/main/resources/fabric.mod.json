@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "chunkblockmod",
+  "version": "${version}",
+  "name": "Chunk Block Mod",
+  "description": "A mod that replaces all blocks in a chunk with a random block type.",
+  "authors": ["eckelsoft"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/chunkblockmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.eckelsoft.chunkblockmod.client.ChunkblockmodClient"
+    ],
+    "main": [
+      "me.eckelsoft.chunkblockmod.Chunkblockmod"
+    ]
+  },
+  "mixins": [
+    "chunkblockmod.mixins.json",
+    {
+      "config": "chunkblockmod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
