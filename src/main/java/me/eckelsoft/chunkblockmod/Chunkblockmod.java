@@ -69,7 +69,7 @@ public class Chunkblockmod implements ModInitializer {
         Block replacementBlock = getReplacementBlockForChunk(chunkPos);
 
         if (replacementBlock == null) {
-            System.err.println("No replacement block found for chunk: " + chunkPos.x + ", " + chunkPos.z);
+            //System.err.println("No replacement block found for chunk: " + chunkPos.x + ", " + chunkPos.z);
             return;
         }
 
@@ -88,9 +88,8 @@ public class Chunkblockmod implements ModInitializer {
             }
         }
 
-        // Sende Chat-Nachricht mit dem neuen Blocktyp
         player.sendMessage(
-                Text.literal("Blöcke in Chunk (" + chunkPos.x + ", " + chunkPos.z + ") wurden ersetzt durch: " + replacementBlock.getTranslationKey()),
+                Text.literal("Chunk (" + chunkPos.x + ", " + chunkPos.z + ") ersetzt durch: " + replacementBlock.getTranslationKey()),
                 false
         );
     }
@@ -127,13 +126,6 @@ public class Chunkblockmod implements ModInitializer {
                 );
 
                 itemsToRemove.forEach(ItemEntity::discard);
-                if (!itemsToRemove.isEmpty()) {
-                    // Sende Chat-Nachricht, wenn Items entfernt werden
-                    player.sendMessage(
-                            Text.literal("Entfernte " + itemsToRemove.size() + " überschüssige Items aus Chunk: (" + chunkPos.x + ", " + chunkPos.z + ")"),
-                            false
-                    );
-                }
             }
         }
     }

@@ -7,6 +7,16 @@ import java.util.Set;
 
 public class RemovableItems {
     private static final Set<Item> REMOVABLE_ITEMS = Set.of(
+            Items.STRING,
+            Items.SKELETON_SKULL,
+            Items.WITHER_SKELETON_SKULL,
+            Items.ACACIA_SAPLING,
+            Items.BIRCH_SAPLING,
+            Items.SPRUCE_SAPLING,
+            Items.CHERRY_SAPLING,
+            Items.OAK_SAPLING,
+            Items.DARK_OAK_SAPLING,
+            Items.JUNGLE_SAPLING,
             Items.WHEAT_SEEDS,
             Items.PINK_PETALS,
             Items.ALLIUM,
