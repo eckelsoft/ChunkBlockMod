@@ -3,25 +3,13 @@
 A Minecraft Fabric mod updated for **version 1.21.11**.
 This mod transforms every chunk a player enters into a random block type while introducing deadly environmental hazards and strategic depth.
 
-## 🚀 Version 1.21.11: The Chaos Update
-- **Pale Garden & Copper Items**: The eerie atmosphere of the latest biomes and the charm of Copper Golems are now fully part of the transformation pool.
-- **The Spear & Mace Meta**: Fully optimized for the latest combat mechanics—crush your enemies or be crushed.
-- **Warden & Wither Spawns**: High-tier bosses have joined the surprise pool. No place is safe anymore.
-- **Nature's Wrath**: Beware of sudden Lightning Strikes that can turn a simple walk into a terminal event.
-
-## 🔥 Hardcore Features & Hazards
-
-### 💀 Curse or Blessing? (Dynamic Effects)
-- **Random Tiers**: Get hit with anything from **Strength V** to **Instant Damage III**.
-- **Stacking Chaos**: Effects refresh and stack as you move, forcing you to choose your path wisely.
-
-### 🧨 Explosive Landscapes (Lava & TNT)
-The block pool is now more dangerous than ever:
+## 🚀 The Chaos Update
 - **Lava**: Chunks can now be replaced entirely by **Lava**
 - **TNT Hazards**: Watch your step—TNT blocks can now appear as part of the random landscape
-
-### 👾 Surprise Spawns
-- From a harmless flock of chickens to a world-ending **Wither** or a stealthy **Warden**.
+- **Random Effects**: Get hit with anything from **Strength V** to **Instant Damage III**.
+- **Stacking Chaos**: Effects refresh and stack as you move, forcing you to choose your path wisely.
+- **👾 Surprise Spawns** From a harmless flock of chickens to a world-ending **Wither** or a stealthy **Warden**.
+- **Version 1.21.11 Features like Spear & Mace Meta, Copper**
 
 ### 🧹 Intelligent Garbage Collector
 - Deletes "trash" items (seeds, saplings, flowers) every 5 seconds.
