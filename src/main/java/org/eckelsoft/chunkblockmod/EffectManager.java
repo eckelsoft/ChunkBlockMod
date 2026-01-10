@@ -6,6 +6,9 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.ChunkPos;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +19,7 @@ public class EffectManager {
 
     static {
         for (RegistryEntry<StatusEffect> effect : Registries.STATUS_EFFECT.getIndexedEntries()) {
-            if (//!effect.value().isInstant()
-                    !effect.equals(StatusEffects.BLINDNESS) &&
+            if (!effect.equals(StatusEffects.BLINDNESS) &&
                     !effect.equals(StatusEffects.DARKNESS) &&
                     !effect.equals(StatusEffects.NAUSEA)) {
                 VALID_EFFECTS.add(effect);
@@ -32,15 +34,25 @@ public class EffectManager {
         Random chunkRandom = new Random(seed);
 
         RegistryEntry<StatusEffect> effect = VALID_EFFECTS.get(chunkRandom.nextInt(VALID_EFFECTS.size()));
+        ServerWorld world = player.getEntityWorld();
 
         int amplifier;
         if (effect.value().isInstant()) {
-            amplifier = chunkRandom.nextInt(3);
+            amplifier = chunkRandom.nextInt(2);
+
+            effect.value().applyUpdateEffect(world, player, amplifier);
+
+            if (ModState.getDebugLevel() == 3) {
+                player.sendMessage(Text.literal("§d[Debug] Instant-Effect: " + effect.value().getName().getString()).formatted(Formatting.LIGHT_PURPLE), false);
+            }
         } else {
             amplifier = chunkRandom.nextInt(5);
-        }
+            int durationTicks = 20 * 30;
+            player.addStatusEffect(new StatusEffectInstance(effect, durationTicks, amplifier));
 
-        int durationTicks = 20 * 30;
-        player.addStatusEffect(new StatusEffectInstance(effect, durationTicks, amplifier));
+            if (ModState.getDebugLevel() == 3) {
+                player.sendMessage(Text.literal("§d[Debug] Effect: " + effect.value().getName().getString() + " (Amp: " + amplifier + ")").formatted(Formatting.LIGHT_PURPLE), false);
+            }
+        }
     }
 }

@@ -75,13 +75,17 @@ public class Chunkblockmod implements ModInitializer {
                                 c.getSource().sendFeedback(() -> Text.literal("Debug mode: OFF"), false);
                                 return 1;
                             })
-                            .then(CommandManager.argument("level", IntegerArgumentType.integer(0, 2))
+                            .then(CommandManager.argument("level", IntegerArgumentType.integer(0, 3))
                                     .executes(c -> {
                                         int level = IntegerArgumentType.getInteger(c, "level");
                                         ModState.setDebugLevel(level);
-                                        String msg = level == 0
-                                                ? "OFF"
-                                                : (level == 1 ? "ON (Mobs only)" : "ON (Full: Mobs & Blocks)");
+                                        String msg;
+                                        switch (level) {
+                                            case 1 -> msg = "ON (Mobs only)";
+                                            case 2 -> msg = "ON (Chunk Blocktype only)";
+                                            case 3 -> msg = "ON (Effects/Buffs only)";
+                                            default -> msg = "OFF";
+                                        }
                                         c.getSource().sendFeedback(
                                                 () -> Text.literal("Debug Level set to: " + msg), false
                                         );

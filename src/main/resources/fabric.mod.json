@@ -1,17 +1,16 @@
 {
   "schemaVersion": 1,
   "id": "chunkblockmod",
-  "version": "${version}",
+  "version": "2.0.1",
   "name": "ChunkBlockMod",
   "description": "",
   "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/chunkblockmod/icon.png",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "org.eckelsoft.chunkblockmod.ChunkblockmodDataGenerator"
     ],
     "client": [
       "org.eckelsoft.chunkblockmod.client.ChunkblockmodClient"

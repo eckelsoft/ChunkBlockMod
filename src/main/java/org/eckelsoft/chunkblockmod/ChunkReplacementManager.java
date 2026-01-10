@@ -862,6 +862,10 @@ public class ChunkReplacementManager {
         if (validReplacementBlocks.isEmpty()) return;
         Block targetBlock = validReplacementBlocks.get(random.nextInt(validReplacementBlocks.size()));
 
+        if (ModState.getDebugLevel() == 2) {
+            player.sendMessage(Text.literal("§7[Debug] Chunk Block: " + targetBlock.getName().getString()).formatted(Formatting.GRAY), false);
+        }
+
         BlockPos.Mutable mutablePos = new BlockPos.Mutable();
         for (int x = chunkPos.getStartX(); x <= chunkPos.getEndX(); x++) {
             for (int z = chunkPos.getStartZ(); z <= chunkPos.getEndZ(); z++) {
